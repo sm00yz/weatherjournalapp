@@ -1,6 +1,7 @@
 // Personal API Key for OpenWeatherMap API
-const key="6f0ef5425e21b5899eb0cec09c1d4051";
-const url= `api.openweathermap.org/data/2.5/weather?${zip},us&appid=6f0ef5425e21b5899eb0cec09c1d4051`;
+const key = '&appid=6f0ef5425e21b5899eb0cec09c1d4051';
+//const key="6f0ef5425e21b5899eb0cec09c1d4051";
+const url= `https://api.openweathermap.org/data/2.5/weather?zip=`;
 // Event listener to add function to existing HTML DOM element
 document.getElementById("generate").addEventListener("click",  performAction);
 /* Function called by event listener */
@@ -17,7 +18,7 @@ function performAction(){
 }
 /* Function to GET Web API Data*/
 const getData= async(url, zip, key)=>{
-const res= await fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${zip},us&appid=6f0ef5425e21b5899eb0cec09c1d4051`)
+const res= await fetch(url+zip+",us"+key)
 .then(res => res.json())
 try{
   console.log(res);
@@ -49,10 +50,9 @@ const updateDomElement= async()=>{
   const req= await fetch('/all')
   .then(req => req.json())
   try{
-    console.log(req.length);
-    document.getElementById('date').innerHTML=req[req.length-1].date;
-    document.getElementById('temp').innerHTML=req[req.length-1].temp;
-    document.getElementById('content').innerHTML=req[req.length-1].user_response;
+    document.getElementById('date').innerHTML=req.date;
+    document.getElementById('temp').innerHTML=req.temp;
+    document.getElementById('content').innerHTML=req.user_response;
     
   }catch(error){
     console.log("error", error);

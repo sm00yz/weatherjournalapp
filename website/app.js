@@ -1,5 +1,5 @@
 // Personal API Key for OpenWeatherMap API
-const key = '&appid=6f0ef5425e21b5899eb0cec09c1d4051';
+const key = '&appid=6f0ef5425e21b5899eb0cec09c1d4051&units=imperial';
 //const key="6f0ef5425e21b5899eb0cec09c1d4051";
 const url= `https://api.openweathermap.org/data/2.5/weather?zip=`;
 // Event listener to add function to existing HTML DOM element
